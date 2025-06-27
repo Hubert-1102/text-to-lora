@@ -77,7 +77,7 @@ def main(args):
     # setup accelerator
     plugin = GradientAccumulationPlugin(num_steps=args.grad_accum_steps, sync_with_dataloader=False)
     accelerator = Accelerator(
-        mixed_precision="fp16",
+        mixed_precision="bf16",
         gradient_accumulation_plugin=plugin,
         split_batches=True,  # True means do not multiply batch size by the number of gpus used
         log_with="wandb",
