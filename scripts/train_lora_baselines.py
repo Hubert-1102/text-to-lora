@@ -4,7 +4,7 @@ import argparse
 
 import yaml
 
-template = "python scripts/train_custom_sft.py configs/lora_gsm8k.yaml --exp_setup=oracle_lora --train_ds_names={task} --eval_ds_info='{{\"{eval_task}\": {{}}}}' --model_dir={model_dir} --lr=8e-5 --batch_size=8 --grad_accum_steps=2 --val_batch_size=32 --epochs=100 --save_to_base_model_dir=True --val_freq=500"
+template = "python scripts/train_custom_sft.py configs/lora_gsm8k.yaml --exp_setup=oracle_lora --train_ds_names={task} --eval_ds_info='{{\"{eval_task}\": {{}}}}' --model_dir={model_dir} --lr=8e-5 --batch_size=8 --grad_accum_steps=2 --val_batch_size=32 --epochs=3 --save_to_base_model_dir=True --val_freq=500"
 
 
 def run_template(model_dir, tasks):
