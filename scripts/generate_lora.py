@@ -52,10 +52,7 @@ def load_hypermod(hypermod_dir, device):
     )
 
 
-if __name__ == "__main__":
-    hypermod_dir = sys.argv[1]
-    task_desc = sys.argv[2].strip("\"' ")
-
+def generate_save(hypermod_dir,task_desc):
     print(f"\nGenerating LoRA for description:\n\n{task_desc}")
 
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -95,3 +92,7 @@ if __name__ == "__main__":
     with open(f"{lora_dir}/task_desc.txt", "w") as f:
         f.write(task_desc)
     print(f"Saved lora to {lora_dir}")
+    return lora_dir
+
+if __name__ == "__main__":
+    generate_save("trained_t2l/llama_8b_t2l", "This task challenges your problem-solving abilities through mathematical reasoning. You must carefully read each scenario and systematically work through the data to compute the final outcome.")
